@@ -1,0 +1,1 @@
+docker run --name CRUSADER_BKAI_NGOCNGUYEN_MMOCR -v /mlcv:/mlcv -w /mlcv --gpus all -t -d --shm-size=256m mmocr 
