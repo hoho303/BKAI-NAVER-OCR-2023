@@ -26,3 +26,5 @@ RUN pip install -r requirements/albu.txt
 WORKDIR /workspace/parseq
 RUN pip install pip-tools
 RUN pip install -r requirements/parseq_dp.txt -e .[train,test]
+
+RUN rm -rf /workspace/
