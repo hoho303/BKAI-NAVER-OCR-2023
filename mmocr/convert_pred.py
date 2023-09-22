@@ -2,7 +2,7 @@ import os
 import json
 import argparse
 
-def convert_results(pred_path, img_path, output_path):
+def convert_results(pred_path, img_path, output_dir, model_name):
     pred_files = os.listdir(pred_path)
     img_files = os.listdir(img_path)
 
@@ -29,26 +29,24 @@ def convert_results(pred_path, img_path, output_path):
         preds_conf.append(img_name + " " + pred + " " + str(conf))
         preds.append(img_name + " " + pred)
 
-    print('Make prediction.txt')
-    with open(output_path + "prediction.txt", 'w', encoding='utf-8') as f:
+    print('Make' + model_name)
+    with open(output_dir + model_name + '.txt', 'w', encoding='utf-8') as f:
         for pred in preds:
             f.write(pred + '\n')
 
-    print('Make prediction_conf.txt')
-    with open(output_path + "prediction_conf.txt", 'w', encoding='utf-8') as f:
-        for pred_conf in preds_conf:
-            f.write(pred_conf + '\n')
+    # print('Make prediction_conf.txt')
+    # with open(output_path + "prediction_conf.txt", 'w', encoding='utf-8') as f:
+    #     for pred_conf in preds_conf:
+    #         f.write(pred_conf + '\n')
 
-# convert_results("/mlcv/WorkingSpace/Personals/ngocnd/mmocr/results/sar/preds/"
-#                 ,"/mlcv/WorkingSpace/Personals/ngocnd/SoICT2023-OCR-Dataset/new_public_test/"
-#                 ,"/mlcv/WorkingSpace/Personals/ngocnd/mmocr/results/sar/")
 
 def parse_args():
     parser = argparse.ArgumentParser(description='Inference')
 
     parser.add_argument('--pred_path', type=str, default='predictions', help='path to predictions folder')
     parser.add_argument('--img_path', type=str, default='/mlcv/WorkingSpace/Personals/ngocnd/SoICT2023-OCR-Dataset/new_public_test/', help='path to test images folder')
-    parser.add_argument('--output_path', type=str, default='predictions.txt', help='path to output file')
+    parser.add_argument('--output_dir', type=str, default='/results/', help='path to output dir')
+    parser.add_argument('--model_name', type=str, default='model.txt', help='name of model')
 
     args = parser.parse_args()
 
@@ -56,4 +54,4 @@ def parse_args():
 
 if __name__ == '__main__':
     args = parse_args()
-    convert_results(args.pred_path, args.img_path, args.output_path)
+    convert_results(args.pred_path, args.img_path, args.output_dir, args.model_name)

@@ -1,1 +1,1 @@
-# BKAI-NAVER-OCR-2023
+# SoICT Hackathon 2023 - Vietnamese Handwritten Text Recognition - Team: Crusader
