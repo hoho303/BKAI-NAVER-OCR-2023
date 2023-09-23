@@ -11,10 +11,10 @@
 
 We recommend to use Docker for building environment.
 
-1. Load Docker Image:
+1. Build Docker Image From Dockerfile:
 
 ```
-docker load < naver2023-crusader.tar.gz
+docker build -t naver2023-crusader .
 ```
 
 2. Run Docker container:
