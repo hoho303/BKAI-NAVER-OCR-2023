@@ -14,9 +14,9 @@ joblib==1.3.2
 lightning-utilities==0.9.0
 multidict==6.0.4
 nltk==3.8.1
-numpy==1.23.5
+numpy==1.24.4
 packaging==23.1
-pillow==9.4.0
+pillow==10.0.0
 pytorch_lightning==1.9.5
 pyyaml==6.0.1
 regex==2023.8.8
@@ -28,4 +28,3 @@ typing-extensions==4.7.1
 urllib3==1.26.16
 yarl==1.9.2
 fire
-natsort
