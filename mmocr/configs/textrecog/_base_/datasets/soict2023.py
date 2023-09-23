@@ -1,4 +1,4 @@
-soict2023_textrecog_data_root = '/mlcv/WorkingSpace/Personals/ngocnd/SoICT2023-OCR-Dataset/'
+soict2023_textrecog_data_root = '/workspace/data/'
 
 soict2023_textrecog_train = dict(
     type='OCRDataset',

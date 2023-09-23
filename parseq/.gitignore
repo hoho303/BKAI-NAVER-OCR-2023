@@ -2,6 +2,7 @@
 outputs/
 multirun/
 ray_results/
+data/
 
 # Byte-compiled / optimized / DLL files
 __pycache__/

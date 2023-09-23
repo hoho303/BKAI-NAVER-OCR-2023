@@ -12,6 +12,8 @@ RUN apt-get update && apt-get install -y git ninja-build libglib2.0-0 libsm6 lib
     && apt-get clean \
     && rm -rf /var/lib/apt/lists/*
 
+RUN pip install gdown
+
 RUN pip install -U openmim
 RUN mim install mmengine
 RUN mim install 'mmcv>=2.0.0rc1'
@@ -27,4 +29,4 @@ WORKDIR /workspace/parseq
 RUN pip install pip-tools
 RUN pip install -r requirements/parseq_dp.txt -e .[train,test]
 
-RUN rm -rf /workspace/
+RUN pip install vietocr

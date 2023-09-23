@@ -14,7 +14,7 @@ We recommend to use Docker for building environment.
 1. Build Docker Image with Dockerfile:
 
 ```
-docker build -t soict2023-htr - < Dockerfile
+docker build -t soict2023-htr - < docker/Dockerfile
 ```
 
 2. Run Docker container:
@@ -28,6 +28,7 @@ bash docker/run.sh
 You can download and reformat dataset by running:
 
 ```
+cd /workspace
 bash scripts/prepare_data.sh
 ```
 
@@ -47,7 +48,8 @@ Example:
 <details>
     <summary>ABINET</summary>
 
-      python /workspace/mmocr/tools/train.py \
+      cd /workspace/mmocr
+      python tools/train.py \
         /workspace/mmocr/configs/textrecog/abinet/abinet_20e-custom_1.py \
         --work-dir /workspace/mmocr/workdir/abinet_v1 \
 You can change parameters by editing config file in */mmocr/configs* folder.
@@ -55,18 +57,17 @@ You can change parameters by editing config file in */mmocr/configs* folder.
 
 <details>
       <summary>PARSEQ</summary>
-    
-      python /workspace/mmocr/tools/train.py \
-        /workspace/mmocr/configs/textrecog/abinet/abinet_20e-custom_1.py \
-        --work-dir /workspace/mmocr/workdir/abinet_v1 \
+
+      cd /workspace/parseq
+      python train.py
+
 </details>
 
 <details>
       <summary>VIETOCR</summary>
-    
-      python /workspace/mmocr/tools/train.py \
-        /workspace/mmocr/configs/textrecog/abinet/abinet_20e-custom_1.py \
-        --work-dir /workspace/mmocr/workdir/abinet_v1 \
+      
+      cd /workspace/vietocr
+      python train_ocr.py
 </details>
 
 ## Inference On Public Test Data
