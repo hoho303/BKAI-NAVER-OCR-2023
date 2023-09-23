@@ -3,9 +3,9 @@
 mkdir -p /workspace/data
 cd /workspace/data
 
-gdown --id 1wfrz4hACcT0FeNu9XPNgtbeKUMLbujdb
-gdown --id 1b4fCTrnfKnR0GHm1XCve9nhy7JyrqahR
-gdown --id 1lR0b1QBIsXk9JqL9__HgJQi0PdWeNxKi
+curl -L -o public_test_data.zip 'https://drive.google.com/uc?export=download&id=1wfrz4hACcT0FeNu9XPNgtbeKUMLbujdb&export=download&confirm=t'
+curl -L -o training_data.zip 'https://drive.google.com/uc?export=download&id=1lR0b1QBIsXk9JqL9__HgJQi0PdWeNxKi&export=download&confirm=t'
+curl -L -o train_gt.txt 'https://drive.google.com/uc?export=download&id=1b4fCTrnfKnR0GHm1XCve9nhy7JyrqahR&export=download&confirm=t'
 
 unzip training_data.zip
 unzip public_test_data.zip
@@ -13,6 +13,7 @@ unzip public_test_data.zip
 # =================================================================================================
 #                                      Prepare For MMOCR
 
+cd /workspace
 python utils/prepare_for_mmocr.py \
     --gt-path /workspace/data/train_gt.txt \
     --train-path /workspace/data/abi_train_gt_1.json \

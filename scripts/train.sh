@@ -36,12 +36,12 @@ python tools/train.py \
 #                               PARSEQ Model Training
 
 cd /workspace/parseq
-python train.py
+python3.8 train.py
 cd /workspace
 
 # =================================================================================================
 #                               VIETOCR Model Training
 
 cd /workspace/vietocr
-python train_vietocr.py
+python3.8 train_vietocr.py
 cd /workspace

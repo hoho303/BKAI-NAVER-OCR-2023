@@ -102,7 +102,7 @@ python tools/convert_pred.py \
 # #                               PARSEQ Model Inference
 
 cd /workspace/parseq
-python read_for_ensemble.py /workspace/checkpoints/parseq_100_0.ckpt \
+python3.8 read_for_ensemble.py /workspace/parseq/outputs/parseq/checkpoints/last.ckpt \
     --images $IMG_PATH \
     --out_file_path /workspace/results/parseq.txt
 
@@ -110,13 +110,19 @@ python read_for_ensemble.py /workspace/checkpoints/parseq_100_0.ckpt \
 # #                               VIETOCR Model Inference
 
 cd /workspace/vietocr
-python infer.py \
+python3.8 infer.py \
     --images $IMG_PATH \
     --config-file-path /workspace/vietocr/config.yml \
-    --ckpt-path /workspace/checkpoints/transformerocr.pth \
+    --ckpt-path /workspace/vietocr/weights/transformerocr.pth \
     --out-file-path /workspace/results/vietocr.txt
 
 # # =================================================================================================
 # #                               Ensemble Model
 
-# # bash /workspace/scripts/ensemble.sh
+# Create dict.json
+python /workspace/utils/create_dict.py
+
+# Ensemble
+python /workspace/utils/ensemble.py 
+
+## result.zip will be saved at /workspace/result.zip

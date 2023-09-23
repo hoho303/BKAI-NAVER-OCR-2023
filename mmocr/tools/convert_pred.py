@@ -34,7 +34,7 @@ def convert_results(pred_path, img_path, output_path):
     #     for pred in preds:
     #         f.write(pred + '\n')
 
-    print('Make ' + output_path)
+    print('Make' + output_path)
     with open(output_path, 'w', encoding='utf-8') as f:
         for pred_conf in preds_conf:
             f.write(pred_conf + '\n')

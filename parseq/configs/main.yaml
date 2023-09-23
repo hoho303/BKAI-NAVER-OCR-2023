@@ -47,7 +47,7 @@ pretrained: null # /workspace/model/checkpoints/parseq/last.ckpt
 hydra:
   output_subdir: config
   run:
-    dir: outputs/${model.name}/${now:%Y-%m-%d}_${now:%H-%M-%S}
+    dir: outputs/${model.name}
   sweep:
     dir: multirun/${model.name}/${now:%Y-%m-%d}_${now:%H-%M-%S}
     subdir: ${hydra.job.override_dirname}
