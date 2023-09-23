@@ -13,12 +13,13 @@ RUN apt-get update && apt-get install -y git ninja-build libglib2.0-0 libsm6 lib
     && rm -rf /var/lib/apt/lists/*
 
 RUN pip install gdown
+RUN apt-get -y update; apt-get -y install curl
 
 RUN pip install -U openmim
 RUN mim install mmengine
 RUN mim install 'mmcv>=2.0.0rc1'
 RUN pip install 'mmdet>=3.0.0rc0'
-RUN git clone https://github.com/hoho303/BKAI-NAVER-OCR-2023.git /workspace
+RUN git clone https://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@github.com/hoho303/BKAI-NAVER-OCR-2023.git /workspace
 WORKDIR /workspace/mmocr
 ENV FORCE_CUDA="1"
 RUN pip install -r requirements.txt
