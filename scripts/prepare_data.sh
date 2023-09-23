@@ -1,5 +1,8 @@
 #                                      Download Dataset
 
+pip install fire
+apt-get install unzip
+
 mkdir -p /workspace/data
 cd /workspace/data
 
