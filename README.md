@@ -22,7 +22,7 @@ docker pull 21522542/crusader
 ```
 docker run --name <YOUR_CONTAINER_NAME> --gpus all -v <PATH_TO_SOURCE_CODE_FOLDER>:/workspace -w /workspace -it --shm-size=1g 21522542/crusader:latest bash
 ```
-Where <PATH_TO_SOURCE_CODE_FOLDER> is path to **src** folder in zip file after unzip.
+Where <PATH_TO_SOURCE_CODE_FOLDER> is path to **src folder in zip file after unzip**.
 \
 \
 Example:
