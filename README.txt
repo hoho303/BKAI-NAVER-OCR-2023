@@ -11,16 +11,16 @@
 
 We recommend to use Docker for building environment.
 
-1. Build Docker Image From Dockerfile:
+1. Pull Docker Image From Docker Hub:
 
 ```
-docker build -t naver2023-crusader .
+docker pull 21522542/crusader
 ```
 
 2. Run Docker container:
 
 ```
-docker run --name <YOUR_CONTAINER_NAME> --gpus all -t -d --shm-size=256m naver2023-crusader:latest
+docker run --name <YOUR_CONTAINER_NAME> --gpus all -v <PATH_TO_SOURCE_CODE_FOLDER>:/workspace -w:/workspace -t -d --shm-size=1g 21522542/crusader:latest
 ```
 
 ## Data Preparation
