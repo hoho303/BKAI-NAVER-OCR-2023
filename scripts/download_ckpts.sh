@@ -1,4 +1,5 @@
 mkdir -p /workspace/checkpoints
+cd /workspace/checkpoints
 # abinet1
 curl -L -o abinet1_80_20.ckpt 'https://drive.google.com/uc?export=download&id=10_Wq7yP6MCwvd6033akrxqNYgs6_fb4A&export=download&confirm=t'
 
