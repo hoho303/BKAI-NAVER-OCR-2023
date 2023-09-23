@@ -11,16 +11,23 @@
 
 We recommend to use Docker for building environment.
 
-1. Pull Docker Image From Docker Hub:
+### 1. Pull Docker Image From Docker Hub:
 
 ```
 docker pull 21522542/crusader
 ```
 
-2. Run Docker container:
+### 2. Run Docker container:
 
 ```
-docker run --name <YOUR_CONTAINER_NAME> --gpus all -v <PATH_TO_SOURCE_CODE_FOLDER>:/workspace -w /workspace -t -d --shm-size=1g 21522542/crusader:latest
+docker run --name <YOUR_CONTAINER_NAME> --gpus all -v <PATH_TO_SOURCE_CODE_FOLDER>:/workspace -w /workspace -it --shm-size=1g 21522542/crusader:latest bash
+```
+Where <PATH_TO_SOURCE_CODE_FOLDER> is path to src folder in zip file after unzip.
+\
+\
+Example:
+```
+docker run --name crusader_bkai2023 --gpus all -v /src:/workspace -w /workspace -it --shm-size=1g 21522542/crusader:latest bash
 ```
 
 ## Data Preparation
