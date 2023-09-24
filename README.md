@@ -39,7 +39,18 @@ cd /workspace
 bash scripts/prepare_data.sh
 ```
 If you can't download data from code, you can directly download it from url in file prepare_data.sh and put it in correct structure then run this code again.
-
+```text
+/workspace
+├── data
+│   ├── public_test_data.zip
+│   └── training_data.zip
+├── docker
+├── mmocr
+├── parseq
+├── scripts
+├── utils
+└── vietocr
+```
 ## Training Model
 
 We train each model on 1 GPU RTX 3090 with 24GB VRAM **for about 6 hours**, total approximate about 50 hours. You can train models by running:
