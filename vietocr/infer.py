@@ -29,7 +29,7 @@ def main():
     predictions = []
     detector = Predictor(config)
 
-    with open(args.out_file_path, 'a') as f:
+    with open(args.out_file_path, 'w') as f:
         for img_file in images:
             img_path = os.path.join(args.images, img_file)
             img = Image.open(img_path)
