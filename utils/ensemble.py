@@ -17,6 +17,15 @@ def ensemble_abinet(PRED_FOLDER, OUTPUT_FILE, DICT_FILE, threshold=0.88):
         rf = open(os.path.join(PRED_FOLDER, pred_file), 'r', encoding='utf-8')
         for sample in rf.readlines():
             sample = sample.split()
+            '''
+            Skip nan prediction:
+                - img_name 
+                - img_name nan
+                - img_name nan nan 
+            '''
+            if (len(sample) <= 2) or ('nan' in sample[2:]):
+                continue
+
             img_name, pred, conf_scores = sample[0], sample[1], sample[2:]
             min_conf_score = min(conf_scores)
             if img_name not in sum_predictions:
@@ -91,6 +100,14 @@ def make_final_result(PRED_FOLDER, OUTPUT_FILE, ZIP_FILE, DICT_FILE, threshold=0
         rf = open(os.path.join(PRED_FOLDER, pred_file), 'r', encoding='utf-8')
         for sample in rf.readlines():
             sample = sample.split()
+            '''
+            Skip nan prediction:
+                - img_name 
+                - img_name nan
+                - img_name nan nan 
+            '''
+            if (len(sample) <= 2) or ('nan' in sample[2:]):
+                continue
             img_name, pred, conf_scores = sample[0], sample[1], sample[2:]
             min_conf_score = min(conf_scores)
             if img_name not in sum_predictions:
