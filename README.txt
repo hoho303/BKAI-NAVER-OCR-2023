@@ -22,7 +22,7 @@ docker pull 21522542/crusader
 ```
 docker run --name <YOUR_CONTAINER_NAME> --gpus all -v <PATH_TO_SOURCE_CODE_FOLDER>:/workspace -w /workspace -it --shm-size=1g 21522542/crusader:latest bash
 ```
-Where <PATH_TO_SOURCE_CODE_FOLDER> is path to src folder in zip file after unzip.
+Where <ABSOLUTE_PATH_TO_SOURCE_CODE_FOLDER> is path to **src folder in zip file after unzip**.
 \
 \
 Example:
@@ -38,10 +38,11 @@ You can download and reformat dataset by running:
 cd /workspace
 bash scripts/prepare_data.sh
 ```
+If you can't download data from code, you can directly download it from url in file prepare_data.sh and put it in correct structure then run this code again.
 
 ## Training Model
 
-We train models on 1 GPU RTX 3090 with 24GB VRAM. You can train models by running:
+We train each model on 1 GPU RTX 3090 with 24GB VRAM **for about 6 hours**, total approximate about 50 hours. You can train models by running:
 
 ```
 cd /workspace
@@ -79,14 +80,14 @@ You can change parameters by editing config file in */mmocr/configs* folder.
 </details>
 
 ## Inference On Public Test Data
-### Infernce after training
+### Inference after training
 After training process, for inference to submit, we provide a file script to run the complete pipeline.
 
 ```
 bash scripts/inference_train.sh
 ```
 
-### Infernce with pretrained weights
+### Inference with pretrained weights
 If you want to inference with best pretrained weights to get our score in public board, you can download pretrained weights by:
 
 ```
