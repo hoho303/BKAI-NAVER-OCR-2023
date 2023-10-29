@@ -1,3 +1,0 @@
-# @package _global_
-defaults:
-  - override /model: /workspace/model/checkpoints/parseq/last.ckpt

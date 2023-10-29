@@ -1,1 +1,0 @@
-docker run --name CRUSADER_BKAI_NGOCNGUYEN_PIPELINE -v /mlcv/WorkingSpace/Personals/ngocnd/BKAI-NAVER-OCR-2023:/workspace -w /mlcv/WorkingSpace/Personals/ngocnd/BKAI-NAVER-OCR-2023:/workspace --gpus all -t -d --shm-size=256m soict2023-htr:latest #mmocr 
