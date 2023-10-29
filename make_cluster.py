@@ -43,3 +43,4 @@ print('Load image done')
 labels = hierarchical_clustering(vectors)
 print('Train done')
 
+ 
