@@ -14,6 +14,12 @@ curl -L -o abinet3_80_20.ckpt 'https://drive.google.com/uc?export=download&id=1a
 # abinet4
 curl -L -o abinet4_100_0.ckpt 'https://drive.google.com/uc?export=download&id=1VkeycE1zxMdSsOaaxX-YR1wwbycXhZgy&export=download&confirm=t'
 
+# abinet 5
+curl -L -o abinet5_80_20.ckpt 'https://drive.google.com/uc?export=download&id=1fLAtgrG225BdRU4yem5I0wc7U8KonVYi&export=download&confirm=t'
+
+# abinet 6
+curl -L -o abinet6_80_20.ckpt 'https://drive.google.com/uc?export=download&id=1dbGeJxHwbzNt8T0hH2glrhiF5kzBqWXs&export=download&confirm=t'
+
 # master
 curl -L -o master_100_0.ckpt 'https://drive.google.com/uc?export=download&id=1TCEAal45DuwKPTMphs32N-Yo8ZwlVyUN&export=download&confirm=t'
 
@@ -24,4 +30,7 @@ curl -L -o satrn_100_0.ckpt 'https://drive.google.com/uc?export=download&id=1CtK
 curl -L -o parseq_100_0.ckpt 'https://drive.google.com/uc?export=download&id=1HyJ-nt14TGaDviCuPLtdAfrLYUwVJU1O&export=download&confirm=t'
 
 # vietocr
-curl -L -o 'transformerocr.pth' 'https://drive.google.com/uc?export=download&id=1JIEBvWOYRjRhz-1cCRUo1ozV8b_6mrVT&export=download&confirm=t'
+curl -L -o 'vietocr_100_0.pth' 'https://drive.google.com/uc?export=download&id=1Cn-cjy45YMGzoYTUyJ6NUJp5Wpi2mQiF&export=download&confirm=t'
+
+# corner transformer
+curl -L -o 'corner_100_0.pth' 'https://drive.google.com/uc?export=download&id=1mBN4PuIqDkU6qsHnNQlhNxWp8Y4R6Ol3&export=download&confirm=t'
