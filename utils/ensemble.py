@@ -12,6 +12,7 @@ def ensemble_abinet(PRED_FOLDER, OUTPUT_FILE, DICT_FILE, threshold=0.88):
         my_dict = json.load(rf)
 
     for pred_file in os.listdir(PRED_FOLDER):
+        print(pred_file)
         model_name = pred_file.split('.')[0]
 
         rf = open(os.path.join(PRED_FOLDER, pred_file), 'r', encoding='utf-8')
@@ -24,6 +25,7 @@ def ensemble_abinet(PRED_FOLDER, OUTPUT_FILE, DICT_FILE, threshold=0.88):
                 - img_name nan nan 
             '''
             if (len(sample) <= 2) or ('nan' in sample[2:]):
+                print(sample)
                 continue
 
             img_name, pred, conf_scores = sample[0], sample[1], sample[2:]
@@ -83,7 +85,7 @@ def ensemble_abinet(PRED_FOLDER, OUTPUT_FILE, DICT_FILE, threshold=0.88):
     wf.close()
     print(time.time() - start)
 
-def make_final_result(PRED_FOLDER, OUTPUT_FILE, ZIP_FILE, DICT_FILE, threshold=0.88):
+def make_final_result(PRED_FOLDER, OUTPUT_FILE, ZIP_FILE, DICT_FILE, threshold=0.78):
     sum_predictions = {}
 
     start = time.time()
@@ -94,7 +96,7 @@ def make_final_result(PRED_FOLDER, OUTPUT_FILE, ZIP_FILE, DICT_FILE, threshold=0
     for pred_file in os.listdir(PRED_FOLDER):
         if ('txt' not in pred_file) or pred_file == 'prediction.txt':
             continue
-        print(pred_file)
+        print(f'***** {pred_file} *****')
         model_name = pred_file.split('.')[0]
 
         rf = open(os.path.join(PRED_FOLDER, pred_file), 'r', encoding='utf-8')
@@ -107,6 +109,7 @@ def make_final_result(PRED_FOLDER, OUTPUT_FILE, ZIP_FILE, DICT_FILE, threshold=0
                 - img_name nan nan 
             '''
             if (len(sample) <= 2) or ('nan' in sample[2:]):
+                print(sample)
                 continue
             img_name, pred, conf_scores = sample[0], sample[1], sample[2:]
             min_conf_score = min(conf_scores)
@@ -152,10 +155,13 @@ def make_final_result(PRED_FOLDER, OUTPUT_FILE, ZIP_FILE, DICT_FILE, threshold=0
                     is_unique += 1
             if is_unique == 1:
                 wf.write(f'{img_name} {max_pred} {max_re_conf}\n')
+            # elif float(content['abirest']['conf']) >= threshold:
+            #     max_pred = content['abirest']['pred']
+            #     md_conf = content['abirest']['conf']
+            #     wf.write(f'{img_name} {max_pred} {md_conf}\n')
             else:
-                max_pred = content['abirest']['pred']
-                md_conf = content['abirest']['conf']
-                wf.write(f'{img_name} {max_pred} {md_conf}\n')
+                max_conf = max(content.values(), key=lambda x: float(x['conf']))
+                wf.write(f'{img_name} {max_conf["pred"]} {max_conf["conf"]}\n')
         else:
             max_conf = max(content.values(), key=lambda x: float(x['conf']))
             wf.write(f'{img_name} {max_conf["pred"]} {max_conf["conf"]}\n')
@@ -181,10 +187,10 @@ def make_final_result(PRED_FOLDER, OUTPUT_FILE, ZIP_FILE, DICT_FILE, threshold=0
     print(f'Tệp zip đã được tạo: {ZIP_FILE}')
     
 # Example usage:
-PRED_FOLDER = '/workspace/results/abinet'
-OUTPUT_FILE = '/workspace/results/abirest.txt'
-DICT_FILE = '/workspace/data/dict.json'
-ensemble_abinet(PRED_FOLDER, OUTPUT_FILE, DICT_FILE)
+# PRED_FOLDER = '/workspace/results/abinet'
+# OUTPUT_FILE = '/workspace/results/abirest.txt'
+DICT_FILE = '/workspace/data/dict-empty.json'
+# ensemble_abinet(PRED_FOLDER, OUTPUT_FILE, DICT_FILE)
 
 PRED_FOLDER = '/workspace/results'
 OUTPUT_FILE = '/workspace/results/prediction.txt'
