@@ -7,7 +7,7 @@ from math import ceil, floor
 
 # Đường dẫn đến các tệp và thư mục
 font_path = "/home/visedit/WorkingSpace/BKAI2023/Datasets/SVN-Holiday.otf"
-json_path = "/mlcv/WorkingSpace/Personals/ngocnd/BKAI2023/SoICT2023-OCR-Dataset/dict.json"
+json_path = "full_text_trainingdata.json"
 background_folder = '/home/visedit/WorkingSpace/BKAI2023/Datasets/backgrounds'
 output_folder = '/home/visedit/WorkingSpace/BKAI2023/Datasets/Overlay'
 
